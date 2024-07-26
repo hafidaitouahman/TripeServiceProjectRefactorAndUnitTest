@@ -1,4 +1,4 @@
-package com.test.service;
+package com.tripservice.service;
 
 import com.tripservice.trip.Trip;
 import com.tripservice.user.User;

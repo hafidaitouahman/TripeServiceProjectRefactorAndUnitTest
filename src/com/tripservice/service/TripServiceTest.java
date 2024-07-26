@@ -1,7 +1,6 @@
-package com.test.service;
+package com.tripservice.service;
 
 import com.tripservice.common.UserNotLoggedInException;
-import com.tripservice.service.TripService;
 import com.tripservice.trip.Trip;
 import com.tripservice.user.User;
 import org.junit.Before;
@@ -9,7 +8,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static com.test.service.UserBuider.aUser;
+import static com.tripservice.service.UserBuider.aUser;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -50,7 +49,7 @@ public class TripServiceTest {
                             .build();
         friendTrips = tripService.getTrips(friend);
         //assert that friendTrips is empty
-        assert friendTrips.isEmpty();
+        assertThat( friendTrips.size(),is(0))  ;
     }
 
     @Test
@@ -75,7 +74,7 @@ public class TripServiceTest {
         }
 
         @Override
-        protected User getLoggedUser() {
+        protected User getLoggedInUser() {
             return loggedInUser;
         }
     }
