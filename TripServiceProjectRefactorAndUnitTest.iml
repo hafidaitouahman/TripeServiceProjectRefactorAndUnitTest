@@ -33,5 +33,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="bluecatcode.junit.4.12.extended" level="project" />
+    <orderEntry type="library" name="springframework.boot.spring" level="project" />
+    <orderEntry type="library" name="mockito.core" level="project" />
   </component>
 </module>

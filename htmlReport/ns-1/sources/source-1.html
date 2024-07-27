@@ -1,0 +1,139 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > TripService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tripservice.service</a>
+</div>
+
+<h1>Coverage Summary for Class: TripService (com.tripservice.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TripService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (7/8)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tripservice.service;
+&nbsp;
+&nbsp;import com.tripservice.common.DependedClassCallDuringUnitTestException;
+&nbsp;import com.tripservice.common.UserNotLoggedInException;
+&nbsp;import com.tripservice.trip.Trip;
+&nbsp;import com.tripservice.tripDAO.TripDAO;
+&nbsp;import com.tripservice.user.User;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+<b class="fc">&nbsp;</b>
+&nbsp;
+&nbsp;public class TripService {
+&nbsp;    public List&lt;Trip&gt; getTrips(User user, User loggedInUser) throws UserNotLoggedInException {
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        // Implement logic to retrieve trips from the database</b>
+&nbsp;        if( loggedInUser == null) {
+<b class="fc">&nbsp;            throw new UserNotLoggedInException(&quot;User not logged in&quot;);</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return user.isFriendWith(loggedInUser)</b>
+&nbsp;                ? getTripList(user)
+&nbsp;                : noTrips();
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+&nbsp;    private static ArrayList&lt;Trip&gt; noTrips() {
+&nbsp;        return new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    private List&lt;Trip&gt; getTripList(User user)  {
+<b class="nc">&nbsp;        try {</b>
+&nbsp;            return new TripDAO().findTripsByUser(user);
+&nbsp;        } catch (DependedClassCallDuringUnitTestException e) {
+&nbsp;            throw new RuntimeException(e);
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-26 23:21</div>
+</div>
+</body>
+</html>
